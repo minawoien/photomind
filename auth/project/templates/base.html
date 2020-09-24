@@ -2,44 +2,42 @@
 
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
 
-<head>
-    
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" /> 
-</head>
-
-<body>
-    <header>
-        <div class='container'>
-            <h1 class='logo'>Photo Mind</h1>
-            <nav>
-                <ul>
-                    <li><a href="{{ url_for('main.index') }}" class="navbar-item">Home</a></li>
-                    {% if current_user.is_authenticated %}
-                    <li><a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a></li>
-                    {% endif %}
-                    {% if not current_user.is_authenticated %}
-                    <li><a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a></li>
-                    <li></li><a href="{{ url_for('auth.signup') }}" class="navbar-item">Sign Up</a></li>
-                    {% endif %}
-                    {% if current_user.is_authenticated %}
-                    <li><a href="{{ url_for('auth.logout') }}" class="navbar-item">Logout</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <section>
-        <div class="hero-body">
-            <div class="container has-text-centered">
-               {% block content %}
-               {% endblock %}
+    </head>
+    <body>
+        <header>
+            <div class='container'>
+                <h1 class='logo'>Photo Mind</h1>
+                <nav>
+                    <ul>
+                        <li><a href="{{ url_for('main.index') }}" class="navbar-item">Home</a></li>
+                        {% if current_user.is_authenticated %}
+                        <li><a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a></li>
+                        {% endif %}
+                        {% if not current_user.is_authenticated %}
+                        <li><a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a></li>
+                        <li></li><a href="{{ url_for('auth.signup') }}" class="navbar-item">Sign Up</a></li>
+                        {% endif %}
+                        {% if current_user.is_authenticated %}
+                        <li><a href="{{ url_for('auth.logout') }}" class="navbar-item">Logout</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
             </div>
-        </div>
-    </section>   
-</body>
+        </header>
+        <section>
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </section>   
+    </body>
 
 </html>
