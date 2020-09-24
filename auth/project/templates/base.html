@@ -7,27 +7,26 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
-
     </head>
     <body>
         <header>
             <div class='container'>
-                <h1 class='logo'>Photo Mind</h1>
                 <nav>
                     <ul>
-                        <li><a href="{{ url_for('main.index') }}" class="navbar-item">Home</a></li>
-                        {% if current_user.is_authenticated %}
-                        <li><a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a></li>
-                        {% endif %}
                         {% if not current_user.is_authenticated %}
+                        <li><a href="{{ url_for('auth.signup') }}" class="navbar-item">Sign Up</a></li>
                         <li><a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a></li>
-                        <li></li><a href="{{ url_for('auth.signup') }}" class="navbar-item">Sign Up</a></li>
                         {% endif %}
                         {% if current_user.is_authenticated %}
                         <li><a href="{{ url_for('auth.logout') }}" class="navbar-item">Logout</a></li>
                         {% endif %}
+                        {% if current_user.is_authenticated %}
+                        <li id="liProfile"><a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a></li>
+                        {% endif %}
+                        <li id="liHjem"><a href="{{ url_for('main.index') }}" class="navbar-item">Home</a></li>
                     </ul>
                 </nav>
+                <h1 id="Overskrift">Photo Mind</h1>
             </div>
         </header>
         <section>

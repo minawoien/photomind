@@ -14,7 +14,30 @@
         {% endif %}
         {% endwith %}
         <form method="POST" action="/login">
-            <div class="field">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Email</td>
+                    </tr>
+                    <tr>
+                        <td><input id="inpLoginEmail" type="email" name="email" placeholder="Your Email" autofocus=""></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                    </tr>
+                    <tr>
+                        <td><input id=inpLoginPassword type="password" name="password" placeholder="Your Password"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="inpCheckbox" type="checkbox"></td>
+                        <td>Remember me</td>
+                    </tr>
+                    <tr>
+                        <td><button id="inpLoginButton">Login</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--<div class="field">
                 <div class="control">
                     <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="">
                 </div>
@@ -31,7 +54,7 @@
                     Remember me
                 </label>
             </div>
-            <button class="button is-block is-info is-large is-fullwidth">Login</button>
+            <button class="button is-block is-info is-large is-fullwidth">Login</button>-->
         </form>
     </div>
 </div>
